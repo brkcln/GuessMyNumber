@@ -51,6 +51,9 @@ h3 {
   line-height: 1.7;
   font-size: 25px;
 }
+.timerLeft {
+  padding: 10px auto;
+}
 .guessed_number {
   display: flex;
   flex-direction: column;
