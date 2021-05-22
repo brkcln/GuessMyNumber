@@ -59,7 +59,7 @@ document.querySelector(".send").addEventListener("click", function () {
         function interVal() {
           if (timeLeft <= 0) {
             clearInterval(timer);
-            sendMessage("Time is up..! Correct number was ${randomNuber} ! ");
+            sendMessage(`Time is up..! Correct number was ${randomNuber} ! `);
             document.querySelector(".timerLeft").style.visibility = "hidden";
           } else {
             document.querySelector(".timerLeft").style.visibility = "visible";
