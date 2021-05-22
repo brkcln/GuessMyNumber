@@ -35,7 +35,6 @@ document.querySelector(".send").addEventListener("click", function () {
       highScore = score;
       document.querySelector(".highscore").textContent = highScore;
     }
-    timerReset();
   } //when high or low
   else if (guessNumber !== randomNuber) {
     if (score > 1) {
