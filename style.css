@@ -129,3 +129,20 @@ input[type="number"] {
   box-shadow: 5px -1px 3px 4px 1px #0c0c0c;
   transform: translateY(4px);
 }
+@media only screen and (max-width: 768px) {
+  .btn {
+    padding: 8px 16px;
+    font-size: medium;
+  }
+  h1 {
+    font-size: 2.3em;
+  }
+  h3 {
+    font-size: 20px;
+    line-height: 1.5;
+  }
+  .container {
+    margin: 2.2em auto;
+    padding: 0.15em;
+  }
+}
