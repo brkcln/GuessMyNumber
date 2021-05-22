@@ -2,8 +2,9 @@
 let score = 10;
 let highScore = 0;
 let randomNuber = Math.trunc(Math.random() * 50 + 1);
-let a = randomNuber - 5;
-let b = randomNuber + 5;
+let a = Number(randomNuber - 5);
+let b = Number(randomNuber + 5);
+let timer;
 
 let sendMessage = function (message) {
   document.querySelector(".message").textContent = message;
@@ -35,29 +36,42 @@ document.querySelector(".send").addEventListener("click", function () {
       highScore = score;
       document.querySelector(".highscore").textContent = highScore;
     }
+    clearInterval(timer);
   } //when high or low
   else if (guessNumber !== randomNuber) {
     if (score > 1) {
-      if (guessNumber > randomNuber) {
-        if (guessNumber <= b) {
-          // when guessnumber "random + 5 > guess number > random"
-          sendMessage("Too close, try lower numbers !");
-        } else {
-          sendMessage("Try lower numbers !");
-        }
-      } else {
-        if (guessNumber >= a) {
-          // when guess number "random - 5 < guess number < random"
-          sendMessage("Too close, try higher numbers !");
-        } else {
-          sendMessage("Try higher numbers !");
-        }
+      if (randomNuber < guessNumber && guessNumber < b) {
+        // when guessnumber "random + 5 > guess number > random"
+        sendMessage("Too close, try lower numbers !");
+      } else if (guessNumber > randomNuber) {
+        sendMessage("Try lower numbers !");
+      } else if (a < guessNumber && guessNumber < randomNuber) {
+        // when guess number "random - 5 < guess number < random"
+        sendMessage("Too close, try higher numbers !");
+      } else if (guessNumber < randomNuber) {
+        sendMessage("Try higher numbers !");
       }
       score--;
       document.querySelector(".score").textContent = score;
+      if (score === 9) {
+        let timeLeft = 30;
+        timer = setInterval(interVal, 1000);
+        function interVal() {
+          if (timeLeft <= 0) {
+            clearInterval(timer);
+            sendMessage("Time is up..! Correct number was ${randomNuber} ! ");
+            document.querySelector(".timerLeft").style.visibility = "hidden";
+          } else {
+            document.querySelector(".timerLeft").style.visibility = "visible";
+            document.querySelector(".timerLeft").textContent =
+              timeLeft + " seconds remaining";
+          }
+          timeLeft -= 1;
+        }
+      }
     } else {
       document.querySelector(".score").textContent = 0;
-      sendMessage(`Correct number was ${guessNumber} !`);
+      sendMessage(`Correct number was ${randomNuber} !`);
     }
   }
 });
@@ -81,11 +95,13 @@ document.querySelector(".high").addEventListener("click", function () {
 // }
 function resetAll() {
   randomNuber = Math.trunc(Math.random() * 50 + 1);
+  a = Number(randomNuber - 5);
+  b = Number(randomNuber + 5);
   score = 10;
   document.querySelector(".score").textContent = score;
   sendMessage("Lets Start !");
   bodyReset();
   document.querySelector(".message").style.fontSize = "25px";
   document.querySelector(".guess").value = "";
-  console.log(randomNuber);
+  document.querySelector(".guess").focus();
 }
