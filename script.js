@@ -88,5 +88,4 @@ function resetAll() {
   document.querySelector(".message").style.fontSize = "25px";
   document.querySelector(".guess").value = "";
   console.log(randomNuber);
-  timerReset();
 }
