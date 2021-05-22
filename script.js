@@ -72,6 +72,8 @@ document.querySelector(".send").addEventListener("click", function () {
     } else {
       document.querySelector(".score").textContent = 0;
       sendMessage(`Correct number was ${randomNuber} !`);
+      document.querySelector(".timerLeft").style.visibility = "hidden";
+      clearInterval(timer);
     }
   }
 });
@@ -104,4 +106,6 @@ function resetAll() {
   document.querySelector(".message").style.fontSize = "25px";
   document.querySelector(".guess").value = "";
   document.querySelector(".guess").focus();
+  document.querySelector(".timerLeft").style.visibility = "hidden";
+  clearInterval(timer);
 }
