@@ -6,8 +6,8 @@
 }
 
 body {
-  background: #8e9775;
-  color: #faf2da;
+  background: #ffe3fe;
+  color: #b4aee8;
   -webkit-font-smoothing: antialiased;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
@@ -43,10 +43,10 @@ h1 {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   line-height: 1.6;
   font-weight: 600;
-  text-shadow: #474747 3px 5px 2px, 2px 2px 2px rgba(206, 89, 55, 0);
+  text-shadow: #474747 3px 5px 2px, 2px 2px 2px #93329e;
 }
 h3 {
-  color: #4a503d;
+  color: #93329e;
   font-style: italic;
   line-height: 1.7;
   font-size: 25px;
@@ -104,33 +104,34 @@ input[type="number"] {
   margin: 15px auto;
   text-align: center;
   border: none;
-  border-bottom: 2px solid #4a503d;
-  background-color: #8e9775;
+  border-bottom: 2px solid #0e0f0c;
+  background-color: #ffe3fe;
   overflow: visible;
-  color: #f5ebcd;
+  color: #93329e;
   font-size: 3.5em;
 }
-.btn {
+.btne {
   padding: 16px 32px;
   border-radius: 12px;
-  background-color: #f5ebcd;
   border: none;
   font-weight: bold;
   font-size: large;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  color: #4a503d;
+  color: #440a67;
+  background-color: #b4aee8;
 }
-.btn:hover {
+
+.btne:hover {
   opacity: 0.85;
   box-shadow: -1px 3px 9px -3px #0c0c0c;
 }
-.btn:active {
+.btne:active {
   background-color: #f5ebcd;
   box-shadow: 5px -1px 3px 4px 1px #0c0c0c;
   transform: translateY(4px);
 }
 @media only screen and (max-width: 768px) {
-  .btn {
+  .btne {
     padding: 8px 16px;
     font-size: medium;
   }
