@@ -5,18 +5,34 @@ let randomNuber = Math.trunc(Math.random() * 50 + 1);
 let a = Number(randomNuber - 5);
 let b = Number(randomNuber + 5);
 let timer;
-
 let sendMessage = function (message) {
   document.querySelector(".message").textContent = message;
 };
-let bodyReset = function () {
-  document.querySelector("body").style.backgroundColor = "#8e9775";
-  document.querySelector("body").style.color = "#faf2da";
-};
+let colorMainBack = function (color) {
+  document.querySelector("body").style.backgroundColor = color;
+}
+let colorMain = function (color) {
+  document.querySelector("body").style.color = "#ffe3fe";
+}
 let bodyStart = function () {
-  document.querySelector("body").style.backgroundColor = "#faf2da";
-  document.querySelector("body").style.color = "#8e9775";
+  document.querySelector(".timerLeft").style.visibility = "hidden";
+  document.querySelector(".message").style.fontSize = "2.5em";
+  sendMessage("Yeeeey ! You got it..");
+  colorMainBack("#b4aee8");
+  colorMain("#ffe3fe");
+  document.querySelector("h1").style.color = "#ffe3fe";
+  document.querySelector(".guess").style.backgroundColor = "#b4aee8";
+  document.querySelector(".guess").style.color = "#ffe3fe";
 };
+let bodyReset = function () {
+  colorMainBack("#ffe3fe");
+  colorMain("#b4aee8");
+  document.querySelector(".guess").style.backgroundColor = "#ffe3fe"; 
+  document.querySelector(".guess").style.color = "#b4aee8";
+  document.querySelector("h1").style.color = "#b4aee8";
+  document.querySelector(".score_section").style.color = "#b4aee8";
+};
+
 console.log(randomNuber);
 // When click "send" button
 document.querySelector(".send").addEventListener("click", function () {
@@ -26,11 +42,8 @@ document.querySelector(".send").addEventListener("click", function () {
     sendMessage("You have to enter any number");
   } //when they are equal
   else if (guessNumber === randomNuber) {
-    document.querySelector(".timerLeft").style.visibility = "hidden";
-    sendMessage("Yeeeey ! You got it");
     bodyStart();
-    document.querySelector(".btn").style.border = "1px solid #8e9775";
-    document.querySelector(".message").style.fontSize = "2.5em";
+    btnColorChang();
     if (score > highScore) {
       highScore = score;
       document.querySelector(".highscore").textContent = highScore;
@@ -82,29 +95,30 @@ document.querySelector(".reset").addEventListener("click", resetAll);
 document.querySelector(".high").addEventListener("click", function () {
   document.querySelector(".highscore").textContent = "0";
 });
+function btnColorChang() {
+  let btneColor = document.querySelectorAll(".btne");
+  var i;
+  for (i = 0; i < btneColor.length; i++) {
+    btneColor[i].style.backgroundColor = "#ffe3fe";
+  }
+}
 
-// let isRunning = true;
-// function controlTime() {
-//   if (isRunning) {
-//     clearInterval(timer);
-//     isRunning = false;
-//   } else {
-//     timer = setInterval(interVal, 1000);
-//     isRunning = true;
-//     interVal();
-//   }
-// }
 function resetAll() {
   randomNuber = Math.trunc(Math.random() * 50 + 1);
   a = Number(randomNuber - 5);
   b = Number(randomNuber + 5);
   score = 10;
   document.querySelector(".score").textContent = score;
-  sendMessage("Lets Start !");
-  bodyReset();
-  document.querySelector(".message").style.fontSize = "25px";
+  sendMessage("Enter a number to start the game..");
+  document.querySelector(".message").style.fontSize = "23px";
   document.querySelector(".guess").value = "";
   document.querySelector(".guess").focus();
   document.querySelector(".timerLeft").style.visibility = "hidden";
+  bodyReset();
+  let btneColor = document.querySelectorAll(".btne");
+  var i;
+  for (i = 0; i < btneColor.length; i++) {
+    btneColor[i].style.backgroundColor = "#b4aee8";
+  }
   clearInterval(timer);
 }
