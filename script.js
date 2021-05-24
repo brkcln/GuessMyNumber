@@ -19,7 +19,6 @@ let bodyStart = function () {
 };
 console.log(randomNuber);
 // When click "send" button
-
 document.querySelector(".send").addEventListener("click", function () {
   const guessNumber = Number(document.querySelector(".guess").value);
   //when no number
@@ -28,7 +27,7 @@ document.querySelector(".send").addEventListener("click", function () {
   } //when they are equal
   else if (guessNumber === randomNuber) {
     document.querySelector(".timerLeft").style.visibility = "hidden";
-    sendMessage("YEY ! You Won, Right Number..!");
+    sendMessage("Yeeeey ! You got it");
     bodyStart();
     document.querySelector(".btn").style.border = "1px solid #8e9775";
     document.querySelector(".message").style.fontSize = "2.5em";
@@ -42,14 +41,14 @@ document.querySelector(".send").addEventListener("click", function () {
     if (score > 1) {
       if (randomNuber < guessNumber && guessNumber < b) {
         // when guessnumber "random + 5 > guess number > random"
-        sendMessage("Too close, try lower numbers !");
+        sendMessage("So close ! try lower one !");
       } else if (guessNumber > randomNuber) {
-        sendMessage("Try lower numbers !");
+        sendMessage("Try lower one !");
       } else if (a < guessNumber && guessNumber < randomNuber) {
         // when guess number "random - 5 < guess number < random"
-        sendMessage("Too close, try higher numbers !");
+        sendMessage("So close ! Try higher one !");
       } else if (guessNumber < randomNuber) {
-        sendMessage("Try higher numbers !");
+        sendMessage("Try higher one !");
       }
       score--;
       document.querySelector(".score").textContent = score;
